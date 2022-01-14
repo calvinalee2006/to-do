@@ -1,7 +1,7 @@
 const form = document.getElementById('formSubmit');
 const items = document.getElementById('listItems');
 const input = document.getElementById('action');
-const strike = document.getElementById('strike');
+const strike = document.getElementById('strikeItem');
 
 form.addEventListener('submit', addItem);
 
@@ -13,17 +13,12 @@ function addItem(e) {
     li.appendChild(document.createTextNode(todo));
     items.appendChild(li);
 }
+items.addEventListener("click", strikeItems);
+function strikeItems(e) {
+    e.target.classList.toggle('completed')
 
-items.addEventListener('submit', removeItems);
-
-function removeItems() {
-    const items = input.value
-    items.removeChild(items.childNodes[1]);
+    // strikethrough functionality goes here
+    // HW: work on getting the todo being clicked on to have a strikethrough on it
 }
 
 
-
-//create a list item
-//create a textnode
-//append the textnode to the list item
-//append the list item to ul. 
