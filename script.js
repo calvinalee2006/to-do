@@ -10,10 +10,11 @@ items.addEventListener('click', removeItem);
 function addItem(e) {
     e.preventDefault();
 
-    const todo = input.value
+    const todo = input.value;
     var li = document.createElement('li');
     li.appendChild(document.createTextNode(todo));
 
+    //li.style.color = 'red';
     var removeBtn = document.createElement('button')
     removeBtn.className = 'btn-remove';
     removeBtn.appendChild(document.createTextNode('X'));
