@@ -6,21 +6,21 @@ const remove = document.getElementById('discardItem')
 
 form.addEventListener('submit', addItem);
 items.addEventListener('click', removeItem);
+const li = document.createElement('li');
 
 function addItem(e) {
     e.preventDefault();
 
     const todo = input.value;
-    var li = document.createElement('li');
     li.appendChild(document.createTextNode(todo));
 
-    //li.style.color = 'red';
-    var removeBtn = document.createElement('button')
+    const removeBtn = document.createElement('button')
     removeBtn.className = 'btn-remove';
     removeBtn.appendChild(document.createTextNode('X'));
     li.appendChild(removeBtn)
 
     items.appendChild(li);
+    document.getElementById('formSubmit').reset();
 }
 
 items.addEventListener("click", strikeItems);
@@ -29,10 +29,9 @@ function strikeItems(e) {
 }
 
 function removeItem(e) {
-    if (e.target.classList.contains('btn-remove')) {
+    if (e.target.classList.contains('btn-remove') && li.className === 'completed') {
         if (confirm('Are you sure?')) {
-            var li = e.target.parentElement;
-            items.removeChild(li);
+            items.removeChild(e.target.parentElement);
         }
     }
 }
